@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:bmi_calculator/constants.dart';
 
 class IconContent extends StatelessWidget {
-  IconContent({this.icon, this.label});
+  IconContent({this.selected, this.icon, this.label});
 
+  final bool selected;
   final IconData icon;
   final String label;
 
@@ -14,6 +15,7 @@ class IconContent extends StatelessWidget {
       children: <Widget>[
         Icon(
           icon,
+          color: selected ? Theme.of(context).accentColor : Colors.white.withAlpha(125),
           size: 80.0,
         ),
         SizedBox(
