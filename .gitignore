@@ -51,6 +51,7 @@ build/
 **/ios/**/Icon?
 **/ios/**/Pods/
 **/ios/**/.symlinks/
+**/ios/Flutter/flutter_export_environment.sh
 **/ios/**/profile
 **/ios/**/xcuserdata
 **/ios/.generated/
