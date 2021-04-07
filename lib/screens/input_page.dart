@@ -212,25 +212,36 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           BottomButton(
-            buttonTitle: 'CALCULATE',
-            onTap: () {
-              CalculatorBrain calc =
-                  CalculatorBrain(height: height, weight: weight);
+              buttonTile: 'CALCULATE',
+              onTap: () {
+                if (selectedGender == null){
+                  Alert(
+                      style: AlertStyle(
+                        backgroundColor: Color(0xFF1D1E33),
+                        titleStyle: kLargeButtonText,
 
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ResultsPage(
-                        bmiResult: calc.calculateBMI(),
-                        resultText: calc.getResult(),
-                        interpretation: calc.getInterpretation(),
                       ),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
+                      context: context,
+                      title: 'Please select Gender.',
+                    ).show();
+
+                }
+                else {
+                  CalculatorBrain calc = CalculatorBrain(height: height,
+                      weight: weight,
+                      age: age,
+                      gender: selectedGender);
+
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ResultPage(bmiResult: calc.calculateBMI(),resultText: calc.getResult(),interpretation: calc.getInterpretation(),)));
+
+                }
+                //print(selectedGender);
+
+                },
+            )
+          ],
+        ),
     );
   }
 }
